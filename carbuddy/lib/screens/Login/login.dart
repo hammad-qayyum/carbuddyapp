@@ -1,5 +1,6 @@
 import 'package:carbuddy/screens/Home/Home.dart';
 import 'package:carbuddy/screens/Register/Register.dart';
+import 'package:carbuddy/screens/VehicleRegister/vehicleregister.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 // import 'package:assessment_task/Widget/customClipper.dart';
@@ -126,7 +127,7 @@ class _LoginState extends State<Login> {
                     onTap: () => Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => VehicleRegister(),
                           ),
                         ),
                     child: Container(

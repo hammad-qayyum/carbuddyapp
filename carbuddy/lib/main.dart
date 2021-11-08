@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:carbuddy/screens/Home/Home.dart';
 import 'package:carbuddy/screens/Login/login.dart';
+import 'package:carbuddy/screens/RideHistory/RideHistory.dart';
 import 'package:carbuddy/screens/VehicleRegister/vehicleregister.dart';
 import 'package:flutter/material.dart';
 

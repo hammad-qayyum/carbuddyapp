@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:carbuddy/screens/splashScreen/Home.dart';
-import 'package:carbuddy/screens/splashScreen/splashScreen.dart';
+import 'package:carbuddy/screens/Home/Home.dart';
+import 'package:carbuddy/screens/Login/login.dart';
+import 'package:carbuddy/screens/VehicleRegister/vehicleregister.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       // home: SplashScreen()
       home: AnimatedSplashScreen(splash: Image.asset('assets/images/carbuddy.png'),duration: 3000,
       splashTransition: SplashTransition.fadeTransition,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.blueGrey,
       nextScreen: HomePage()),
     );
   }

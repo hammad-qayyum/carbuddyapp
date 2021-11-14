@@ -3,6 +3,7 @@ import 'package:carbuddy/screens/Home/Home.dart';
 import 'package:carbuddy/screens/Login/login.dart';
 import 'package:carbuddy/screens/RideHistory/RideHistory.dart';
 import 'package:carbuddy/screens/VehicleRegister/vehicleregister.dart';
+import 'package:carbuddy/screens/MapHome/MapHome.dart';
 import 'package:flutter/material.dart';
 
 void main() {

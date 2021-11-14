@@ -10,62 +10,66 @@ class VehicleRegister extends StatefulWidget {
 
 class _VehicleRegisterState extends State<VehicleRegister> {
 
-  String _name = '';
-  String _email = '';
-  String _password = '';
-  String _url= '';
-  String _phoneNumber= '';
+ String RideType='';
+
+ TextEditingController _carcolor  = TextEditingController();
+ TextEditingController _nameCar  = TextEditingController();
+ TextEditingController _nameCompany  = TextEditingController();
+ TextEditingController _carRegistrationNumber  = TextEditingController();
+ TextEditingController _modelCar  = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  Widget _selectRideType(){
+    return DropdownButton<String>(
+      value: RideType,
+      icon: const Icon(Icons.arrow_downward),
+      iconSize: 24,
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? newValue) {
+        setState(() {
+          RideType = newValue!;
+        });
+      },
+      items: <String>['Economy', 'Businesss', 'Premium']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+
   Widget _color() {
     return TextFormField(
+      controller: _carcolor,
       decoration: InputDecoration(labelText: 'Color'),
       keyboardType: TextInputType.text,
-      validator: (var value) {
-        if (value!.isEmpty) {
-          return 'Color is Required';
-        }
-
-        return null;
-      },
-      onSaved: (var value) {
-        _password = value!;
-      },
+      
     );
   }
 
   Widget _carName() {
     return TextFormField(
+      controller: _nameCar,
       decoration: InputDecoration(labelText: 'Car Name'),
       keyboardType: TextInputType.text,
-      validator: (var value) {
-        if (value!.isEmpty) {
-          return 'Car Name is Required';
-        }
-
-        return null;
-      },
-      onSaved: (var value) {
-        _url = value!;
-      },
+      
     );
   }
 
     Widget _companyName() {
     return TextFormField(
+      controller: _nameCompany,
       decoration: InputDecoration(labelText: 'Company Name'),
       keyboardType: TextInputType.text,
-      validator: (var value) {
-        if (value!.isEmpty) {
-          return 'Company Name is Required';
-        }
-
-        return null;
-      },
-      onSaved: (var value) {
-        _url = value!;
-      },
+     
     );
   }
 
@@ -73,16 +77,8 @@ class _VehicleRegisterState extends State<VehicleRegister> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Registration Number'),
       keyboardType: TextInputType.url,
-      validator: (var value) {
-        if (value!.isEmpty) {
-          return 'Registration Number is Required';
-        }
-
-        return null;
-      },
-      onSaved: (var value) {
-        _url = value!;
-      },
+      controller: _carRegistrationNumber,
+      
     );
   }
 
@@ -90,16 +86,7 @@ class _VehicleRegisterState extends State<VehicleRegister> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Car model'),
       keyboardType: TextInputType.number,
-      validator: (var value) {
-        if (value!.isEmpty) {
-          return 'Car model is Required';
-        }
-
-        return null;
-      },
-      onSaved: (var value) {
-        _url = value!;
-      },
+      controller: _modelCar,
     );
   }
 
@@ -120,6 +107,7 @@ class _VehicleRegisterState extends State<VehicleRegister> {
               children: <Widget>[
                 // _buildName(),
                 // _buildEmail(),
+                // _selectRideType(),
                 _companyName(),
                 _color(),
                 _carModel(),
